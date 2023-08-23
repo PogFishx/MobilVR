@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Gems {
     public class MineGems : MonoBehaviour {
     
-    	public AudioClip collectSound;
+    	public AudioSource audioSource;
     
         public int GemsMined;
     
@@ -28,41 +28,50 @@ namespace Gems {
     			Mine();
     		}
     	}
+
+        void MineSound()
+        {
+            audioSource.Play();
+            //AudioSource.PlayClipAtPoint(MineSoundEffect, transform.position);
+        }
     
     	public void Mine()
     	{
-    		if(collectSound)
-    			AudioSource.PlayClipAtPoint(collectSound, transform.position);
-            
             if(GemsMined==0)
             {
                 Gem1.SetActive(true);
                 Destroy(Gem1fake);
+                MineSound();
             }
             if(GemsMined==1)
             {
                 Gem2.SetActive(true);
                 Destroy(Gem2fake);
+                MineSound();
             }
             if(GemsMined==2)
             {
                 Gem3.SetActive(true);
                 Destroy(Gem3fake);
+                MineSound();
             }
             if(GemsMined==3)
             {
                 Gem4.SetActive(true);
                 Destroy(Gem4fake);
+                MineSound();
             }
             if(GemsMined==4)
             {
                 Gem5.SetActive(true);
                 Destroy(Gem5fake);
+                MineSound();
             }
             if(GemsMined==5)
             {
                 Gem6.SetActive(true);
                 Destroy(Gem6fake);
+                MineSound();
             }
     		GemsMined++;
     	}
